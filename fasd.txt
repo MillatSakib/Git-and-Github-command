@@ -1,0 +1,5 @@
+(i) Check Git version 
+      Command: git --version
+      
+(ii) Set global user name and email(If you want to use a name all folder in a os)
+      Command for user_name: 
