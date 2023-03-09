@@ -1,0 +1,66 @@
+আমরা যখন গিটে কোনো প্রোজেক্ট এড করতে চাই তখন সবার আগে আমরা যে কাজটি করতে পারি তা হচ্ছে আমরা গিটকে কনফিগ করে নিতে পারি। আমরা চাইলে গিটকে গ্লোবালি কনফিগ করতে পারি আবার চাইলে লোকালি কনফিগ করতে পারি।
+গ্লোবালি কনফিগ করার জন্য নিচের কমান্ড দুইটি এক্সিকিউট করতে হবেঃ-
+$git config --global user.name "Md. Sohan Millat Sakib"		(For set your user id)
+$git config --global user.email "millatsakib01@gmail.com"	(For set your email)
+
+এরপর আমরা প্রজেক্ট ফোল্ডার বানাব । এর জন্য আমরা টার্মিনাল ইউজ করতে পারি।এর জন্য নিচের কমান্ড এক্সিকিউট করতে হবে।
+$mkdir directory_name
+আর আমরা যদি জানতে চাই যে আমি যে ডিরেক্টরি তে আছি সেখানে কি কি ফাইল আছে তাহলে আমরা নিচের কমান্ডটি ব্যাবহার করতে পারি
+$ls
+এখন আমরা আরেকটি কমান্ড সম্পর্কে  জানব তা হচ্ছে কিভাবে অন্য ডিরেক্টরিতে যাওয়া যায়। এর জন্য নিচের কমান্ডটি এক্সিকিউট করতে পারি 
+$cd directiory_name
+আর আমরা যদি ডিরেক্টরি থেকে ব্যাক করতে চাই তাহলে আমরা নিচের কমান্ড এক্সিকিউট করতে পারি
+$cd ..
+এতক্ষণ আমরা দেখলাম যে কিভাবে ডিরেক্টরি রিলেটেড বেসিক কাজগুলো করা যায়। এখন আমরা দেখব কিভাবে আমরা গিট নিয়ে কাজ করব।
+গিট নিয়ে কাজ করার জন্য প্রথমেই আমাদের যে প্রোজেক্টে গিট নিয়ে কাজ করব সেখানে গিটকে ইনিশিয়ালাজ করতে হবে। এই জন্য নিচের কমান্ড রান করতে হবে
+$git init
+আর আমরা যদি কোন ফাইল কি অবস্থায় আছে তা জানতে চাই তাহলে আমাদের নিচের কমান্ডটি ব্যাবহার করতে হবে।
+$git status
+আর আমরা যদি জানতে চাই যে 
+git diff
+
+ git restore
+
+ 
+git add -A  (A for all)
+
+git reset
+
+git reset --soft HEAD^
+
+git reset HEAD^
+
+git reset --hard HEAD^ 
+
+git add file_name
+
+touch file_name
+
+
+
+
+
+
+git add .
+
+git commit              Esc         :wq
+
+git commit -m "write here your commit massege"
+
+git log
+
+git log --oneline
+
+git branch branch_name
+
+git checkout branch_name
+
+git checkout -b branch_name
+
+mkdir directory_name
+
+git remote add origin https_link
+
+git remote -v
+
+git push origin master
