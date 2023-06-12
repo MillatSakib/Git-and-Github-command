@@ -59,19 +59,89 @@ $git add .
 আর আমরা যদি stage তোলা সবগুলো ফাইলকে stage থেকে নামাতে চাই সেক্ষেত্রে নিচের কমান্ডটি এক্সিকিউট করতে হবে।
 $git reset
 আর আমরা যদি একটা নির্দিষ্ট ফাইল কে স্টেজ থেকে নামাতে চাই তখন আমরা নিচের কমান্ডকে এক্সিকিউট করতে পারি
-git restore --staged file_name
+$git restore --staged file_name
 
+			####################################################
+					কমিট করা
+
+গিটে ফাইল কমিট করা একদমই সহজ। এই জন্য যে যে ফাইল কমিট করতে চাই সেগুলো আগে স্টেজে তুলতে হবে তারপর আমরা নিচের কমান্ডের মধ্যমে আমরা কমিট করতে পারি।
+$git commit        (then write commit)      (then press Esc)         (then execute the command->   :wq)
+
+আবার আমরা চাইলে এক লাইনেও নিচের মত করে কমিট করতে পারি
+$git commit -m "write here your commit massege"
+
+আর আমরা যদি আমাদের প্রোজেক্টে করা কমিট গুলো দেখতে চাই তখন আমরা নিচের কমান্ড এক্সিকিউট করতে পারি 
+$git commit  
+
+এখন আমাদের জানা প্রয়োজন গিটে আনকমিট করা সম্পর্কে।
+
+আমরা যদি এমনভাবে আনমিট করতে চাই যাতে আমি যে কমিটে যাব তার পরের সকল কোড Staging Area তে থাকবে তাইলে আমরা নিচের কমান্ড এক্সিকিউট করব
+$git reset --soft head_pointer_no.      (You get head pointer no. by exicuting the commed git log --oneline)
+
+আর আমরা যদি এমনভাবে আনকমিট করতে চাই যে আমি যে কমিটে আসব সেই কমিট পর্যন্তই কোড থাকে আর বাকি কোড মুছে যায় তবে আমরা নিচের কমান্ড এক্সিকিট করব
+$git reset --hard head_pointer_no.
+
+আর আমরা যদি এমনভাবে আনকমিট করতে চাই যে আমি যে কমিটে আসব সেই কমিট পর্যন্তই কোড থাকে আর বাকি কোড সরাসরি Working Directory তে চলে যাক তাইলে নিচের কমান্ড এক্সিকিউট করতে হবে
+$git reset head_pointer_no.
+
+আমরা যখন ফাইলগুলোকে Staging area থেকে Locan Ripository তে নিতে চাই তখন আমাদের নিচের কমান্ডটি এক্সিকিউট করতে হবে
+$git reset
+
+আমরা যখন ফাইলগুলোকে Commit করা file কে Locan Ripository তে নিতে চাই তখন আমাদের নিচের কমান্ডটি এক্সিকিউট করতে হবে
+$git reset HEAD~
+			####################################################
+					গিট Branching
+
+আমরা যখন একটা প্রজেক্টে একই সাথে অনেক জন কাজ করি তখন আমাদের Branching করতে হয় । Branching রিলেটেড কিছু কমান্ড নিচে দেওয়া হলোঃ 
+
+আমাদের যদি জানার প্রয়োজন হয় আমার প্রোজেক্টে কয়টি ও কি কি  Branch আছে তবে আমাদের নিচের কমান্ড এক্সিকিউট করতে হবে 
+$git branch
+
+আমাদের যদি নতুন কোনো branch বানানোর প্রয়োজন হয় তখন আমাদের নিচের কমান্ড এক্সিকিউট করতে হবে
+$git branch branch_name
+
+আমদের যদি অন্য Branch এ গিয়ে কাজ করার প্রয়োজন হয় তখন আমাদের নিচের কমান্ড এক্সিকিউট করতে হবে 
+$git checkout branch_name
+
+git merge branch_name
+
+আমরা যদি কোনো ব্রাঞ্চকে ডিলিট করতে চাই তাইলে নিচের কমান্ড এক্সিকিউট করতে হবে
+$git branch -D branch_name
+
+আমাদের যদি কোনো নির্দিষ্ট Branchকে Clone করতে হয় তখন আমাদের নিচের কমান্ড এক্সিকিউট করতে হবে
+$git clone --branch branch_name repo_link
+
+আর আমরা যদি গিটহাবে থাকা সকল Branch কে Clone করতে চাই সেক্ষেত্রে নিচের কমান্ডগুলো এক্সিকিউট করতে হবে
+$git clone repo_link
+$cd dir_name
+$gir branch   (For cheking branch)
+$git branch -a  (For get all Branch)
+$git checkout origin/another_branch_name
+$git checkout another_branch_name
+$git branch  (Now you get the another branch)
+
+আর আমরা যদি দুইটি Branch কে একত্রে করতে চাই তখন আমাদের নিচে কমান্ড এক্সিকিউট করতে হবে
+$git merge new_branch
 
 			####################################################
 
 					কোনো ফাইল গিটে পুশ করার কমান্ড
 
+গিটে কোনো প্রোজেক্ট পুশ করার জন্য নিচের কমান্ডগুলো এক্সিকিউট করতে হবে
+$git remote add origin https:link
+$git branch -M main
+$git push -u origin main
+তবে আমরা পুশ করার সময় কিছু কিছু সমস্যার সম্মুখীন হই যেমন আমরা যদি অন্যের গিট প্রোজেক্টকে নিজের গিটহাব এ আপলোড করতে চাই তখন 
+সে যে অরিজিন সেট করে সেই অরিজিনে আপলোড নেয় বাট তার গিট হাব লগ ইন না থাকায় আপলোড হয় না এটি সমাধানের জন্য নিচের কমান্ড 
+এক্সিকিউট করতে হবে।
+$git remote set-url origin "new_link"
 
-git remote add origin https:link
-git branch -M main
-git push -u origin main
+আর রিমোট অরিজিনে কোন লিংক সেট করা আছে তা যদি জানতে চাই তখন নিচের কমান্ড এক্সিকিউট করতে হবে
+$ git remote -v
 
 			####################################################
+
+
 আর আমরা যদি জানতে চাই যে 
 git diff
 
@@ -99,9 +169,9 @@ touch file_name
 
 
 
-git commit              Esc         :wq
 
-git commit -m "write here your commit massege"
+
+
 
 git log
 
