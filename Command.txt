@@ -144,7 +144,8 @@ $ git remote -v
 					SSH Key জেনারেট করা
 
 SSH key ব্যাবহারের জন্য প্রথমে আমাদের লোকার মেশিনে SSH key জেনারেট করতে হবে। এই জন্য নিচের কমান্ড এক্সিকিউট করতে হবে 
-
+$ ssh-keygen -o -t rsa -C millatsakib01@gmail.comssh-keygen -o -t rsa -C millatsakib01@gmail.com
+or,
 $ ssh-keygen -t ed25519 -C "your_email@example.com"
 তারপর চারবার ইন্টার এ হিট করতে হবে। কারন এই  জন্য চারটি  কাজ করতে হয়...
 এরপর উইন্ডোজ এর জন্য নিচের পাথ এ ব্রাউজ করুন 
