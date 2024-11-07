@@ -158,6 +158,34 @@ Computer:/home/sakib/.ssh
 
 
 
+			####################################################
+				
+					একাধিক SSH Key ব্যাবহার করা
+
+আমাদের কাজের প্রয়োজনে অনেক সময় একই মেশিনে একধিক SSH Key ব্যবহার করার প্রয়োজন হতে পারে। সেক্ষেত্রে আমরা নিচের ধাপ গুলো অনুসরণ করতে পারি
+
+প্রথমে আমাদের আলাদা নামে একটি SSH Key Generate করতে হবে। নিচে একটি উদাহরণ দেওয়া হলঃ
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/id_rsa_sohangub
+
+এর ফলে id_rsa_sohangub নামে একটি SSH Key তৈরি হলো। এখন আমাদের এই keyটাকে কনফিগার করতে হবে। কারন আমাদের একই মেশিনে একাধিক key তৈরি করে ফেলেছি।
+এই জন্য নিচের কমান্ড দুইটি আলাদাভাবে এক্সিকিউট করতে হবে
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa_sohangub
+
+এখন যেহেতু মাল্টিপল SSH ফাইল আছে তাই আমাদের ম্যানুয়ালি বলে দিতে হবে কোন কমান্ডের জন্য কোন SSH Key ব্যাবহার হবে। এই জন্য আমাদের .ssh ফোল্ডারে config নামে এক্সটেনশন ছাড়া একটি ফাইল তৈরি করতে হবে। এবং এটাকে টেক্সট ফাইলের মত করে নিচের কনফিগারেশন লিখে দিতে হবে 
+`
+Host github-millatsakibbdCalling
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_sohangub
+    IdentitiesOnly yes
+
+`
+
+একাধিক ফাইল হলে ওই config ফাইলের মধ্যে মাল্টিপল কনফিগারেশন Add করতে হবে। কিন্তু আমাদের এক্ষেত্রে আমাদের রিপোতে থাকা ssh লিংক দিয়ে পুশ করতে পারব না। এর লিংকটাকে নিচের মতো করে আপডেট করতে হবে
+git@github-millatsakibbdCalling:millatsakibbdCalling/java-learing.git
 
 
 
